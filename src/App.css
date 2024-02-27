@@ -1,34 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Gaegu&family=Poor+Story&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Gaegu&family=Poor+Story&display=swap");
 
 * {
   font-family: "Poor Story";
 }
-body{
-  background-color: #F6F6F6;
+
+body {
+  background-color: hsl(0, 0%, 96%);
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: "Poor Story";
-  min-height: 100vh; 
+  min-height: 100vh;
   margin: 0px;
   /* vh: viewport`s height, 현재 화면 크기의 100%를 최소 높이로 하겠다 */
 }
 
-.App{
+.App {
   min-height: 100vh;
   padding-left: 20px;
   padding-right: 20px;
 }
 
 /* 너비가 650픽셀 이상일 때에만 적용되는 css */
-@media (min-width: 650px){
-  .App{
+@media (min-width: 650px) {
+  .App {
     width: 640px;
   }
 }
 
-@media (max-width: 650px){
-  .App{
+@media (max-width: 650px) {
+  .App {
     width: 90vw;
   }
 }
@@ -38,9 +39,8 @@ body{
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
-
 /* Header */
-header{
+header {
   padding-top: 20px;
   padding-bottom: 20px;
 
@@ -53,25 +53,25 @@ header > div {
   display: flex;
 }
 
-header .head_text{
+header .head_text {
   width: 50%;
   font-size: 25px;
   justify-content: center;
 }
 
-header .head_btn_left{
+header .head_btn_left {
   width: 25%;
-  justify-content: start ;
+  justify-content: start;
 }
 
-header .head_btn_right{
+header .head_btn_right {
   width: 25%;
   justify-content: end;
 }
 
 /* MyButton */
 .MyButton {
-  cursor:pointer;
+  cursor: pointer;
   border: none;
   border-radius: 5px;
   padding: 10px 20px 10px 20px;
@@ -83,7 +83,7 @@ header .head_btn_right{
 }
 
 /* 3가지 버튼 타입에 대해 다르게 css 스타일 적용 */
-.MyButton_default{
+.MyButton_default {
   background-color: #ececec;
   color: black;
 }
@@ -99,6 +99,7 @@ header .head_btn_right{
   color: white;
 }
 
+/* DiaryList */
 .DiaryList .menu_wrapper {
   margin-top: 20px;
   margin-bottom: 30px;
@@ -124,6 +125,7 @@ header .head_btn_right{
   width: 100%;
 }
 
+/* DiaryItem */
 .DiaryItem {
   padding-top: 15px;
   padding-bottom: 15px;
@@ -141,6 +143,24 @@ header .head_btn_right{
   justify-content: center;
 }
 
+.DiaryItem .emotion_img_wrapper_1 {
+  background-color: #64c964;
+}
+
+.DiaryItem .emotion_img_wrapper_2 {
+  background-color: #9dd772;
+}
+
+.DiaryItem .emotion_img_wrapper_3 {
+  background-color: #fdce17;
+}
+.DiaryItem .emotion_img_wrapper_4 {
+  background-color: #fd8446;
+}
+
+.DiaryItem .emotion_img_wrapper_5 {
+  background-color: #fd565f;
+}
 .DiaryItem .info_wrapper {
   flex-grow: 1;
   margin-left: 20px;
@@ -159,4 +179,97 @@ header .head_btn_right{
 
 .DiaryItem .btn_wrapper {
   min-width: 70px;
+}
+
+/* DiaryEditor */
+.DiaryEditor section {
+  margin-bottom: 40px;
+}
+
+.DiaryEditor .input_date {
+  border: none;
+  border-radius: 5px;
+  background-color: #ececec;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.DiaryEditor .emotion_list_wrapper {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  grid-gap: 2%;
+  gap: 2%;
+}
+
+/* EmotionItem */
+.EmotionItem {
+  cursor: pointer;
+  border-radius: 5px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.EmotionItem img {
+  width: 50%;
+  margin-bottom: 10px;
+}
+
+.EmotionItem span {
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.EmotionItem_off {
+  background-color: #ececec;
+  /* 백그라운드: 회색 */
+}
+
+.EmotionItem_on_1 {
+  background-color: #64c964;
+  color: #fff;
+}
+
+.EmotionItem_on_2 {
+  background-color: #9dd772;
+  color: #fff;
+}
+
+.EmotionItem_on_3 {
+  background-color: #fdce17;
+  color: #fff;
+}
+
+.EmotionItem_on_4 {
+  background-color: #fd8446;
+  color: #fff;
+}
+
+.EmotionItem_on_5 {
+  background-color: #fd565f;
+  color: #fff;
+}
+
+.DiaryEditor textarea {
+  font-family: "Gaegu";
+  font-size: 20px;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 200px;
+  resize: vertical;
+  border: none;
+  border-radius: 5px;
+  background-color: #ececec;
+  padding: 20px;
+}
+
+.DiaryEditor .control_box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

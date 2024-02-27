@@ -9,6 +9,7 @@ const Diary = () => {
         <div>
             <h1>Diary</h1>
             <p>이곳은 일기를 확인하는 공간입니다.</p>
+            <div>{`id: ${id}`}</div>
         </div>
     )
 }
