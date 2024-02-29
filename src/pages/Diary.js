@@ -11,6 +11,12 @@ const Diary = () => {
   const navigate = useNavigate();
   const diaryList = useContext(DiaryStateContext);
 
+  //페이지마다 title 변경하기
+  useEffect(() => {
+    const titleElement = document.getElementsByTagName("title")[0];
+    titleElement.innerHTML = `감정 일기장 - ${id}번 일기`;
+  });
+
   //일기 데이터 관리
   const [pageData, setPageData] = useState();
 

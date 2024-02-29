@@ -52,7 +52,6 @@ const DiaryList = ({ diaryList }) => {
   //시간순 정보 필터링을 위한 함수: 정렬된 다이어리 리스트를 반환
   const getProcessedDiaryList = () => {
     const filterCallback = (item) => {
-      console.log("filterclalback");
       if (emotionType === "good") {
         return parseInt(item.emotion) <= 3;
       } else {

@@ -11,6 +11,12 @@ const Edit = () => {
   const diaryList = useContext(DiaryStateContext);
   const navigate = useNavigate();
 
+  //페이지마다 title 변경하기
+  useEffect(() => {
+    const titleElement = document.getElementsByTagName("title")[0];
+    titleElement.innerHTML = `감정 일기장 - ${id}번 일기 수정`;
+  });
+
   //수정 데이터 저장 state
   const [originData, setOriginData] = useState(); //수정할 원본 데이터
 

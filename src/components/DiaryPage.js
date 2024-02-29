@@ -1,11 +1,7 @@
 import { emotionList } from "../util/emotion";
 
 const DiaryPage = ({ pageData }) => {
-  const env = process.env;
-  env.PUBLIC_URL = env.PUBLIC_URL || "";
-
-  console.log(emotionList[pageData.emotion - 1]);
-
+  console.log(emotionList[pageData.emotion - 1].emotion_img);
   return (
     <div className="DiaryPage">
       <section>

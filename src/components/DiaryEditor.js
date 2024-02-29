@@ -6,9 +6,6 @@ import EmotionItem from "./EmotionItem";
 import { emotionList } from "../util/emotion";
 import React from "react";
 
-const env = process.env;
-env.PUBLIC_URL = env.PUBLIC_URL || "";
-
 //props로 받는 것: 수정하기를 누른 경우에 대비하여 originData를 받아와 띄운다.
 const DiaryEditor = ({ isEdit, originData }) => {
   const navigate = useNavigate();
