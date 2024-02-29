@@ -52,7 +52,7 @@ function App() {
   //local Storage에서 데이터 가져오기
   useEffect(() => {
     const localData = localStorage.getItem("diary");
-    if (localData.length != 0) {
+    if (localData) {
       const diaryList = JSON.parse(localData).sort(
         (a, b) => parseInt(b.id) - parseInt(a.id) //내림차순으로 정렬된다.
       );
