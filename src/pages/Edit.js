@@ -38,8 +38,9 @@ const Edit = () => {
 
   const handleDelete = () => {
     if (window.confirm("정말 삭제하시겠습니까?")) {
-      onRemove(id);
       console.log(id);
+      console.log(originData.id);
+      onRemove(originData.id);
       navigate("/", { replace: true });
     }
   };

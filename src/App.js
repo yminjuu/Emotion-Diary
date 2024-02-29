@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import React, { useReducer, useState, useRef } from "react";
+import React, { useReducer, useState, useRef, useEffect } from "react";
 
 import Home from "./pages/Home";
 import New from "./pages/New";
@@ -27,8 +27,6 @@ const reducer = (state, action) => {
       newState = state.filter((it) => it.id !== action.targetId);
       break;
     }
-    // action.data는 하나의 일기 데이터가 될 것임.
-    // targetId와 일치하면 newState에 해당 데이터(action.data)를 뿌려주고, 그렇지 않으면 반복을 지속한다
     case "EDIT": {
       newState = state.map((it) =>
         it.id === action.data.id ? { ...action.data } : it
@@ -38,6 +36,7 @@ const reducer = (state, action) => {
     default:
       return state;
   }
+  localStorage.setItem("diary", JSON.stringify(newState));
   return newState;
 };
 
@@ -50,6 +49,20 @@ function App() {
 
   const dataId = useRef(0);
 
+  //local Storage에서 데이터 가져오기
+  useEffect(() => {
+    const localData = localStorage.getItem("diary");
+    if (localData.length != 0) {
+      const diaryList = JSON.parse(localData).sort(
+        (a, b) => parseInt(b.id) - parseInt(a.id) //내림차순으로 정렬된다.
+      );
+      // dataId.current = parseInt(diaryList[0].id) + 1;
+      dispatch({ type: "INIT", data: diaryList });
+    } else {
+    }
+  }, []);
+
+  //data state 관리
   const onCreate = ({ date, content, emotion }) => {
     dispatch({
       type: "CREATE",
@@ -64,7 +77,6 @@ function App() {
   };
 
   const onRemove = (targetId) => {
-    console.log(targetId);
     dispatch({
       type: "REMOVE",
       targetId,
