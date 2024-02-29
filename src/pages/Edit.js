@@ -74,5 +74,4 @@ const Edit = () => {
     </div>
   );
 };
-// 수정중이라면 diaryeditor에게 origindata를 전달한다.
 export default Edit;

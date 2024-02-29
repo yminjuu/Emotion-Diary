@@ -1,12 +1,15 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import MyButton from "./MyButton";
 import DiaryItem from "./DiaryItem";
 
-//필터링을 위한 ControlMenu
-//value: 어떤 게 선택된 상태인가? onChange: 다른 걸 선택하면 어떻게 할 것인가?
-//optionList: 어떤 option이 있는가?
-const ControlMenu = ({ value, onChange, optionList }) => {
+const areEqual = (value, onChange, optionList) => {};
+
+//React.memo 사용: prop이 바뀌지 않으면 랜더링이 일어나지 않게 방지한다.
+//만약 props로 받는 onChange 함수가 state의 상태 변화 함수가 아니라
+//일반 함수였다면 해당 함수를 useCallback 메서드를 사용하여 묶어줘야 했을 것이다.
+//결론적으로 기억해야 할 것은 state의 상태 변화 함수는 동일한 메모리를 보장한다는 것임!
+const ControlMenu = React.memo(({ value, onChange, optionList }) => {
   return (
     <select
       className="ControlMenu"
@@ -22,7 +25,7 @@ const ControlMenu = ({ value, onChange, optionList }) => {
       ))}
     </select>
   );
-};
+});
 
 const sortOptionList = [
   { value: "latest", name: "최신순" },
@@ -104,9 +107,7 @@ const DiaryList = ({ diaryList }) => {
         </div>
       </div>
       {getProcessedDiaryList().map((it) => (
-        <DiaryItem {...it} key={it.id}>
-          {it.content} {it.emotion}
-        </DiaryItem>
+        <DiaryItem {...it} key={it.id}></DiaryItem>
       ))}
     </div>
   );

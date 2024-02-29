@@ -56,9 +56,10 @@ function App() {
       const diaryList = JSON.parse(localData).sort(
         (a, b) => parseInt(b.id) - parseInt(a.id) //내림차순으로 정렬된다.
       );
-      // dataId.current = parseInt(diaryList[0].id) + 1;
+      dataId.current = parseInt(diaryList[0].id) + 1;
       dispatch({ type: "INIT", data: diaryList });
     } else {
+      alert("다이어리를 채워보세요!");
     }
   }, []);
 

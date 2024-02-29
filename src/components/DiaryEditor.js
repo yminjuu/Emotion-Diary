@@ -1,9 +1,10 @@
-import { useContext, useRef, useState } from "react";
+import { useCallback, useContext, useRef, useState } from "react";
 import MyButton from "./MyButton";
 import { DiaryDispatchContext } from "../App";
 import { useNavigate } from "react-router-dom";
 import EmotionItem from "./EmotionItem";
 import { emotionList } from "../util/emotion";
+import React from "react";
 
 const env = process.env;
 env.PUBLIC_URL = env.PUBLIC_URL || "";
@@ -22,9 +23,9 @@ const DiaryEditor = ({ isEdit, originData }) => {
   //감정 선택 관리
   const [emotion, setEmotion] = useState(isEdit ? originData.emotion : 3);
 
-  const handleClickEmotion = (emotion) => {
+  const handleClickEmotion = useCallback((emotion) => {
     setEmotion(emotion);
-  };
+  }, []);
 
   //본문 작성 관리
   const [content, setContent] = useState(isEdit ? originData.content : "");
@@ -124,4 +125,4 @@ const DiaryEditor = ({ isEdit, originData }) => {
   );
 };
 
-export default DiaryEditor;
+export default React.memo(DiaryEditor);
