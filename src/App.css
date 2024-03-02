@@ -125,6 +125,29 @@ header .head_btn_right {
   width: 100%;
 }
 
+/* Home의 한 달 간의 감정 리뷰 */
+.monthlyEmotion {
+  color: rgb(120, 103, 103);
+  font-family: "Gaegu";
+}
+
+.monthlyEmotion h3 {
+  display: flex;
+  justify-content: center;
+}
+
+.monthlyEmotion .monthlyEmotionComment {
+  color: red;
+  font-family: "Gaegu";
+}
+
+.monthlyEmotion .monthReview {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  font-family: "Gaegu";
+}
+
 /* DiaryItem */
 .DiaryItem {
   padding-top: 15px;
