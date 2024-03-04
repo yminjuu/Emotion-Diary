@@ -91,7 +91,7 @@ const Home = () => {
       <div className="monthlyEmotion">
         <h3>
           <span className="monthlyEmotionComment">
-            {monthlyReview}
+            {monthlyReview}&nbsp;
             {curDate.getMonth() + 1 + "월"}
             이네요
           </span>
